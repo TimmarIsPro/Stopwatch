@@ -1,6 +1,9 @@
 # Stopwatch
 A basic stopwatch written in Angular2. Contains Play, Pause, Lap and Stop functions.
 
+Tutorial followed:  https://dmkcode.com/2016/08/simple-timer-using-angular-2-and-rxjs/
+                    https://dmkcode.com/2016/09/simple-timer-using-angular-2-and-rxjs-part-2/
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.0.
 
 ## Development server
