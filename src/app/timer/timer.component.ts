@@ -7,6 +7,9 @@ import {TimerService} from '../timer.service';
   templateUrl: './timer.component.html',
   styleUrls: ['./timer.component.css']
 })
+
+// Milliseconds are definitely centiseconds do not be alarmed.
+
 export class TimerComponent implements OnInit, OnDestroy {
 
   constructor(private timerService: TimerService) { }
@@ -53,7 +56,11 @@ export class TimerComponent implements OnInit, OnDestroy {
 
   private startTimer() {
 
-    const timer = Observable.timer(1, 1);
+    this.lapMillisecondsDisplay = 0;
+    this.lapSecondsDisplay = 0;
+    this.lapMinutesDisplay = 0;
+    this.lapHoursDisplay = 0;
+    const timer = Observable.timer(0, 10);
     this.sub = timer.subscribe(
       t => {
         this.ticks = this.start + t;
@@ -72,34 +79,41 @@ export class TimerComponent implements OnInit, OnDestroy {
     }
   }
   private stopTimer () {
+    this.lapMillisecondsDisplay = this.getMilliseconds(this.ticks);
+    this.lapSecondsDisplay = this.getSeconds(this.ticks);
+    this.lapMinutesDisplay = this.getMinutes(this.ticks);
+    this.lapHoursDisplay = this.getHours(this.ticks);
     this.start = 0;
     this.ticks = 0;
+
     this.minutesDisplay = 0;
     this.hoursDisplay = 0;
     this.secondsDisplay = 0;
     this.millisecondsDisplay = 0;
+
+
     if (this.sub) {
       this.sub.unsubscribe();
     }
   }
   private lapTimer() {
-    this.lapMillisecondsDisplay = (this.ticks % 1000);
-    this.lapSecondsDisplay = (Math.floor(this.ticks / 1000) % 60);
-    this.lapMinutesDisplay = (Math.floor(this.ticks / 1000 / 60) % 60);
-    this.lapHoursDisplay = (Math.floor(this.ticks / 1000 / 60 / 60 ) % 60);
+    this.lapMillisecondsDisplay = (this.ticks % 100);
+    this.lapSecondsDisplay = (Math.floor(this.ticks / 100) % 60);
+    this.lapMinutesDisplay = (Math.floor(this.ticks / 100 / 60) % 60);
+    this.lapHoursDisplay = (Math.floor(this.ticks / 100 / 60 / 60 ) % 60);
   }
   private getMilliseconds(ticks: number) {
-    return this.pad(ticks % 1000);
+    return this.pad(ticks % 100);
   }
   private getSeconds(ticks: number) {
     // return this.pad(ticks % 60);
-    return this.pad(Math.floor(ticks / 1000) % 60);
+    return this.pad(Math.floor(ticks / 100) % 60);
   }
   private getMinutes(ticks: number) {
-    return this.pad(Math.floor(ticks / 1000 / 60) % 60);
+    return this.pad(Math.floor(ticks / 100 / 60) % 60);
   }
   private getHours(ticks: number) {
-    return this.pad(Math.floor(ticks / 1000 / 60 / 60 ) % 60);
+    return this.pad(Math.floor(ticks / 100 / 60 / 60 ) % 60);
   }
   private pad(digit: any) {
     return digit <= 9 ? '0' + digit : digit;

@@ -1,6 +1,8 @@
+<div>
 <h1>
-  {{hoursDisplay ? hoursDisplay : '00'}} : {{(minutesDisplay) && (minutesDisplay <= 59) ? minutesDisplay : '00'}} : {{(secondsDisplay) && (secondsDisplay <= 59) ? secondsDisplay : '00'}} : {{(millisecondsDisplay) && (millisecondsDisplay <= 999) ? millisecondsDisplay : '000'}} <br/>
+  {{hoursDisplay ? hoursDisplay : '00'}} : {{(minutesDisplay) && (minutesDisplay <= 59) ? minutesDisplay : '00'}} : {{(secondsDisplay) && (secondsDisplay <= 59) ? secondsDisplay : '00'}} : {{(millisecondsDisplay) && (millisecondsDisplay <= 999) ? millisecondsDisplay : '00'}} <br/>
 </h1>
 <h4>
-  Previous Lap: {{lapHoursDisplay ? lapHoursDisplay : '00'}} : {{(lapMinutesDisplay) && (lapMinutesDisplay <= 59) ? lapMinutesDisplay : '00'}} : {{(lapSecondsDisplay) && (lapSecondsDisplay <= 59) ? lapSecondsDisplay : '00'}} : {{(lapMillisecondsDisplay) && (lapMillisecondsDisplay <= 999) ? lapMillisecondsDisplay : '000'}} <br/>
+  Previous Lap: {{lapHoursDisplay ? lapHoursDisplay : '00'}} : {{(lapMinutesDisplay) && (lapMinutesDisplay <= 59) ? lapMinutesDisplay : '00'}} : {{(lapSecondsDisplay) && (lapSecondsDisplay <= 59) ? lapSecondsDisplay : '00'}} : {{(lapMillisecondsDisplay) && (lapMillisecondsDisplay <= 99) ? lapMillisecondsDisplay : '00'}} <br/>
   </h4>
+</div>

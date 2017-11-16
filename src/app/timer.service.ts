@@ -44,6 +44,7 @@ export class TimerService {
     this.playPauseStop$.emit({
       lap: this.lap
     });
+    this.lap = false;
   }
 
 }

@@ -1,6 +1,13 @@
+<!--<div>-->
+  <!--<button [disabled]="play" (click)="playTimer()">Play</button>-->
+  <!--<button [disabled]="!play" (click)="pauseTimer()">Pause</button>-->
+  <!--<button (click)="stopTimer()">Stop</button>-->
+  <!--<button [disabled]="!play" (click)="lapTimer()">Lap</button>-->
+<!--</div>-->
+
 <div>
-  <button [disabled]="play" (click)="playTimer()">Play</button>
-  <button [disabled]="!play" (click)="pauseTimer()">Pause</button>
+  <button (click)="playTimer()">Play</button>
+  <button (click)="pauseTimer()">Pause</button>
   <button (click)="stopTimer()">Stop</button>
   <button (click)="lapTimer()">Lap</button>
 </div>
