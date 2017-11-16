@@ -1,4 +1,5 @@
 # Stopwatch
+A basic stopwatch written in Angular2. Contains Play, Pause, Lap and Stop functions.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.0.
 
